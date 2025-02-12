@@ -1,0 +1,13 @@
+use employ;
+select student_name,sno no_of_student_name from stu_reg;
+select count(student_name) as no_of_student_name from stu_reg group by student_name; 
+select count(student_name) as no_of_student_name from stu_reg where sno>0 group by student_name having no_of_student_name>0;
+commit;
+select sno,student_name,age from stu_reg where age=(select max(age) from stu_reg); 
+select *from stu_reg;
+select *from stu_reg where address in(select address from stu_reg where address like 't%');
+update stu_reg set department=bca where sno=1;
+select *from stu_reg;
+select student_name,age from stu_reg where age in (select max(age) from stu_reg)
+select student_name,sno from stu_reg where exists(select * from stu_reg where sno>11);
+select student_name,sno from stu_reg where exists(select * from stu_reg where sno>5);
